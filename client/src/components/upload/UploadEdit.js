@@ -11,7 +11,7 @@ function UploadEdit({ blobs, setBlobs, files, setFiles, history, start, setStart
          if(blobs.length > 0){
             setSrc(blobs[0]);
          }
-    }, [])
+    }, []);
 
     const [ loader, setLoader ] = useState({
             display:'none'
@@ -55,6 +55,10 @@ function UploadEdit({ blobs, setBlobs, files, setFiles, history, start, setStart
         let newPages = pages;
         let newPage = pages[currentPage];
 
+        if(!newPage.button){
+            setButtons(buttons => buttons + 1);
+        };
+
         const button = {
             top,
             left,
@@ -80,7 +84,6 @@ function UploadEdit({ blobs, setBlobs, files, setFiles, history, start, setStart
             width:0,
             height:0
         });
-        setButtons(buttons => buttons + 1);
         setEditError();
     };
 
