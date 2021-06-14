@@ -26,13 +26,14 @@ function Test({ test, emptyTest }) {
     const [ button, setButton ] = useState({});
     const [ next, setNext ] = useState();
     const [ testTask, setTestTask ] = useState('');
+    
 
     useEffect(() => {
 
         if(test.pages === undefined){
             return 
         } else {
-            setSrc('https://quiet-inlet-46335.herokuapp.com/images/' + test.pages[test.start].src);
+            setSrc('http://localhost:5000/images/' + test.pages[test.start].src);
             setButton({
                 top: test.pages[test.start].button.top + '%',
                 left: test.pages[test.start].button.left + '%',
@@ -122,7 +123,7 @@ function Test({ test, emptyTest }) {
                 finishTest();
             }} src={src}></img>
             <button className='test-target-button' onClick={()=>{
-                setSrc('https://quiet-inlet-46335.herokuapp.com/images/' + test.pages[next].src);
+                setSrc('http://localhost:5000/images/' + test.pages[next].src);
                 setClicked(clicked => clicked + 1);
                 setLoader({
                     display:'block'

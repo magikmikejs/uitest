@@ -52,7 +52,6 @@ function Dashboard({ tests, fetchTests, type }) {
                                     <div className='dashboard-test'>
                                         <div className='dashboard-test-utils'>
                                                 <h3>{test.name}</h3>
-                                                <button>Delete Test</button>
                                         </div>
                                         <p className='dashboard-p'>Responses</p>
                                         {renderFeedback(test)}

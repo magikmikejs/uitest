@@ -13,6 +13,8 @@ function Upload({ id, history }) {
     const [ task, setTask ] = useState('');
     const [ pages, setPages ] = useState([]);
     const [ start, setStart ] = useState(-1);
+    const [ files, setFiles ] = useState([]);
+    const [ blobs, setBlobs ] = useState([]);
 
     const showUpload = () => {
         if( render === 'FORM' ){
@@ -21,7 +23,7 @@ function Upload({ id, history }) {
             )
         } else if( render === 'EDIT' ){
             return (
-             <UploadEdit start={start} setStart={setStart} pages={pages} setPages={setPages} setRender={setRender} name={name} task={task} />
+             <UploadEdit setBlobs={setBlobs} blobs={blobs} files={files} setFiles={setFiles} start={start} setStart={setStart} pages={pages} setPages={setPages} setRender={setRender} name={name} task={task} />
             )
         }
     }

@@ -53,40 +53,6 @@ function Home() {
         
     };
 
-    const slideContainer = () => {
-        if(slided == 0){
-            setSlideStyle({
-                transform:'translateX(-100%)',
-                transition:'.3s'
-            });
-            setBtnSlideOne({
-                background:'transparent'
-            });
-            setBtnSlideTwo({
-                background:'#5244CB'
-            });
-            setSlided(1);
-        } else if(slided == 1){
-            setSlideStyle({
-                transform:'translateX(0%)',
-                transition:'.3s'
-            });
-            setBtnSlideOne({
-                background:'#5244CB'
-            });
-            setBtnSlideTwo({
-                background:'transparent'
-            })
-            setSlided(0);
-        };
-    };
-
-    useEffect(()=>{
- 
-        setTimeout(slideContainer, 10000);
-
-    },[slided]);
-
     return (
         <div>
             <Menu />   

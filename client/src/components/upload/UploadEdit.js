@@ -1,11 +1,17 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
 import Slider from './components/Slider';
 import UploadMenu from './components/UploadMenu';
 
-function UploadEdit({ history, start, setStart, setRender, id, tests, name, task, pages, setPages }) {
+function UploadEdit({ blobs, setBlobs, files, setFiles, history, start, setStart, setRender, id, tests, name, task, pages, setPages }) {
+ 
+    useEffect(()=> {
+         if(blobs.length > 0){
+            setSrc(blobs[0]);
+         }
+    }, [])
 
     const [ loader, setLoader ] = useState({
             display:'none'
@@ -16,10 +22,6 @@ function UploadEdit({ history, start, setStart, setRender, id, tests, name, task
     const [ editable, setEditable ] = useState(false);
 
     const [ buttons, setButtons ] = useState(0);
-
-    const [ files, setFiles ] = useState([]);
-
-    const [ blobs, setBlobs ] = useState([]);
 
     const [ src, setSrc ] = useState('');
 
